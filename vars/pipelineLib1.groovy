@@ -7,18 +7,18 @@ def call() {
             IMAGE_NAME = 'fatma21/jenkins-library'
         }
 
-       stages {
-        stage('Build Java & Docker') {
-            steps {
-                echo 'Building Java app and Docker image...'
-                buildJavaApp(env.IMAGE_NAME)
+        stages {
+            stage('Build Java & Docker') {
+                steps {
+                    echo 'Building Java app and Docker image...'
+                    buildJavaApp(env.IMAGE_NAME) // لازم تكون متعرفة
+                }
             }
-        }
 
             stage('Push Docker Image') {
                 steps {
                     echo 'Pushing Docker image to DockerHub'
-                    pushDockerImage(env.IMAGE_NAME)
+                    pushDockerImage(env.IMAGE_NAME) // لازم تكون متعرفة
                 }
             }
         }
